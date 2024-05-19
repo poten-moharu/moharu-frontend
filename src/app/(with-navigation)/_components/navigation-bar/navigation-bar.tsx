@@ -8,8 +8,8 @@ const mobileNavigationList = [
     text: '홈',
   },
   {
-    href: '/wishlist',
-    icon: <Image src="/images/icons/wishlist.svg" fill alt="wishlist" />,
+    href: '/wish-list',
+    icon: <Image src="/images/icons/wishlist.svg" fill alt="wish-list" />,
     text: '위시리스트',
   },
   {
@@ -20,7 +20,7 @@ const mobileNavigationList = [
 ];
 
 const NavigationBar = () => (
-  <nav className="sticky bottom-0 left-0 grid h-16 w-full grid-cols-3 bg-gray-100">
+  <nav className="sticky bottom-0 left-0 grid h-16 w-full flex-none grid-cols-3 bg-gray-100">
     {mobileNavigationList.map(({ href, icon, text }) => (
       <MobileNavigationLink key={text} href={href} icon={icon} text={text} />
     ))}

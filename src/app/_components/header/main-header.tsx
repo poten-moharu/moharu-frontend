@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const Header = () => {
+const MainHeader = () => {
   return (
     <header className="sticky top-0 z-50 flex h-20 justify-between border-b bg-black p-5">
       <Image
@@ -13,4 +13,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MainHeader;

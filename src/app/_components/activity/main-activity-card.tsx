@@ -1,5 +1,6 @@
-import { Activity } from '@/app/page';
+import { Activity } from '@/types/type';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface MainActivityCardProps {
   activity: Activity;
@@ -7,7 +8,7 @@ interface MainActivityCardProps {
 
 const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
   return (
-    <div>
+    <Link href={`/activity/${activity.activityId}`}>
       <Image
         src={activity.imageUrl}
         alt={activity.title}
@@ -23,7 +24,7 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
           <span key={tag}>{tag}</span>
         ))}
       </div>
-    </div>
+    </Link>
   );
 };
 
