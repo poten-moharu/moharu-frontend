@@ -11,7 +11,7 @@ export default function Layout({
   return (
     <>
       <MainHeader />
-      <main className="flex-auto overflow-auto">{children}</main>
+      <main className="flex flex-auto flex-col overflow-auto">{children}</main>
       <NavigationBar />
     </>
   );
