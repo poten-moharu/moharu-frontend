@@ -1,4 +1,4 @@
-import { Activity } from '@/app/page';
+import { Activity } from '@/types/type';
 import Image from 'next/image';
 
 interface MainActivityCardProps {

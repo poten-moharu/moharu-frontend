@@ -1,4 +1,4 @@
-import { Category } from '@/app/page';
+import { Category } from '@/app/(with-navigation)/page';
 import Image from 'next/image';
 
 interface CategoryBarProps {
