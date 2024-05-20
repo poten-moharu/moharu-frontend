@@ -1,6 +1,7 @@
 import SubHeader from '@/app/_components/header/sub-header';
 import { Activity } from '@/types/type';
 import { promises as fs } from 'fs';
+import PaymentButton from './_components/payment-button';
 
 export default async function ReservationPage({
   params: { activityId },
@@ -21,6 +22,7 @@ export default async function ReservationPage({
     <>
       <SubHeader title="예약하기" />
       {activity.title} 예약페이지
+      <PaymentButton activityId={activity.activityId}></PaymentButton>
     </>
   );
 }
