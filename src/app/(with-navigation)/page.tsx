@@ -2,27 +2,8 @@
 
 import MainActivityCard from '@/app/_components/activity/main-activity-card';
 import CategoryBar from '@/app/_components/category-bar/category-bar';
+import { Activity, Category } from '@/types/type';
 import { useEffect, useState } from 'react';
-
-export interface Category {
-  categoryId: string;
-  name: string;
-  description: string;
-  icon: string;
-}
-
-export interface Activity {
-  activityId: string;
-  title: string;
-  description: string;
-  categoryId: string;
-  imageUrl: string;
-  activityType: string;
-  location: string;
-  tags: string[];
-  activityDate: string;
-  registerDate: string;
-}
 
 export default function Home() {
   const [categoryList, setCategoryList] = useState<Category[]>([]);
