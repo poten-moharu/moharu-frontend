@@ -7,7 +7,7 @@ interface WishListCardProps {
 }
 const WishListCard: React.FC<WishListCardProps> = ({ wishList }) => (
   <Link
-    href={`/activity/${wishList.activityId}`}
+    href={`/activities/${wishList.activityId}`}
     className="col-span-1 flex w-full flex-col p-6"
   >
     <div className="relative aspect-square w-full">
