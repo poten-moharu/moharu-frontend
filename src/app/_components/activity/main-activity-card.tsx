@@ -8,7 +8,7 @@ interface MainActivityCardProps {
 
 const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
   return (
-    <Link href={`/activity/${activity.activityId}`}>
+    <Link href={`/activities/${activity.activityId}`}>
       <Image
         src={activity.imageUrl}
         alt={activity.title}
