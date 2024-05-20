@@ -10,3 +10,14 @@ export interface Activity {
   activityDate: string;
   registerDate: string;
 }
+
+export interface User {
+  id: number;
+  email: string;
+  name: string;
+  profileImage: string;
+  age: number;
+  socialId: string;
+  mbti: string;
+  region: string;
+}
