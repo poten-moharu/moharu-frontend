@@ -10,10 +10,10 @@ export default async function WishListPage() {
   const wishLists: Activity[] = JSON.parse(file);
 
   return (
-    <main className="grid h-full w-full grid-cols-2 items-center">
+    <div className="grid h-full w-full grid-cols-2 items-center">
       {wishLists.map(wishList => (
         <WishListCard key={wishList.activityId} wishList={wishList} />
       ))}
-    </main>
+    </div>
   );
 }
