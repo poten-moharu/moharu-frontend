@@ -13,8 +13,8 @@ const CategoryBar: React.FC<CategoryBarProps> = ({ categoryList }) => {
           <Image
             src={`/images/icons/${category.icon}.svg`}
             alt={category.name}
-            width={24}
-            height={24}
+            width={20}
+            height={20}
           />
           <p>{category.name}</p>
         </div>
