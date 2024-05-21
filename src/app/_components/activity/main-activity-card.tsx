@@ -1,9 +1,8 @@
-import LocationInfo from '@/components/ui/locationInfo';
-import ScheduleInfo from '@/components/ui/scheduleInfo';
+import LocationInfo from '@/app/_components/info/location-info';
+import ScheduleInfo from '@/app/_components/info/schedule-info';
 import { Activity } from '@/types/type';
 import Image from 'next/image';
 import Link from 'next/link';
-
 interface MainActivityCardProps {
   activity: Activity;
 }
