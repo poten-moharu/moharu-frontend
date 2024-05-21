@@ -13,6 +13,7 @@ const activities = [
     location: 'Location 1',
     tags: ['tag1', 'tag2'],
     activityDate: '2022-01-01',
+    activityEndDate: '2022-01-02',
     registerDate: '2021-12-01',
   },
   {
@@ -25,6 +26,7 @@ const activities = [
     location: 'Location 2',
     tags: ['tag3', 'tag4'],
     activityDate: '2022-02-01',
+    activityEndDate: '2022-01-02',
     registerDate: '2021-12-02',
   },
   {
@@ -37,6 +39,7 @@ const activities = [
     location: 'Location 3',
     tags: ['tag5', 'tag6'],
     activityDate: '2022-03-01',
+    activityEndDate: '2022-01-02',
     registerDate: '2021-12-03',
   },
   {
@@ -49,6 +52,7 @@ const activities = [
     location: 'Location 4',
     tags: ['tag7', 'tag8'],
     activityDate: '2022-04-01',
+    activityEndDate: '2022-01-02',
     registerDate: '2021-12-04',
   },
   {
@@ -61,6 +65,7 @@ const activities = [
     location: 'Location 5',
     tags: ['tag9', 'tag10'],
     activityDate: '2022-05-01',
+    activityEndDate: '2022-01-02',
     registerDate: '2021-12-05',
   },
   {
@@ -73,6 +78,7 @@ const activities = [
     location: 'Location 6',
     tags: ['tag11', 'tag12'],
     activityDate: '2022-06-01',
+    activityEndDate: '2022-01-02',
     registerDate: '2021-12-06',
   },
   {
@@ -85,6 +91,7 @@ const activities = [
     location: 'Location 7',
     tags: ['tag13', 'tag14'],
     activityDate: '2022-07-01',
+    activityEndDate: '2022-01-02',
     registerDate: '2021-12-07',
   },
   {
@@ -97,6 +104,7 @@ const activities = [
     location: 'Location 8',
     tags: ['tag15', 'tag16'],
     activityDate: '2022-08-01',
+    activityEndDate: '2022-01-02',
     registerDate: '2021-12-08',
   },
   {
@@ -109,6 +117,7 @@ const activities = [
     location: 'Location 9',
     tags: ['tag17', 'tag18'],
     activityDate: '2022-09-01',
+    activityEndDate: '2022-01-02',
     registerDate: '2021-12-09',
   },
   {
@@ -121,6 +130,7 @@ const activities = [
     location: 'Location 10',
     tags: ['tag19', 'tag20'],
     activityDate: '2022-10-01',
+    activityEndDate: '2022-01-02',
     registerDate: '2021-12-10',
   },
 ];
