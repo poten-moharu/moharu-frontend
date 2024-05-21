@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -16,7 +15,7 @@ import { z } from 'zod';
 
 const formSchema = z.object({
   email: z.string().email({ message: '올바른 이메일 형식이 아닙니다.' }),
-  password: z.string(),
+  password: z.string().min(1, ''),
 });
 
 const LoginForm = () => {
@@ -30,10 +29,7 @@ const LoginForm = () => {
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="flex h-full flex-col gap-2 px-10"
-      >
+      <form className="flex h-full flex-col gap-5 px-10">
         <FormField
           control={form.control}
           name="email"
@@ -44,13 +40,6 @@ const LoginForm = () => {
                 <Input placeholder="이메일 주소를 입력해주세요." {...field} />
               </FormControl>
               {form.formState.errors.email && <FormMessage />}
-              {!form.formState.errors.email && (
-                <FormDescription>
-                  {!form.getValues('email')
-                    ? '이메일 주소를 입력해주세요.'
-                    : ''}
-                </FormDescription>
-              )}
             </FormItem>
           )}
         />
@@ -67,34 +56,20 @@ const LoginForm = () => {
                   {...field}
                 />
               </FormControl>
-              {form.formState.errors.email && <FormMessage />}
-              {!form.formState.errors.email && (
-                <FormDescription>
-                  {!form.getValues('password') && '비밀번호를 입력해주세요.'}
-                </FormDescription>
-              )}
+              {form.formState.errors.password && <FormMessage />}
             </FormItem>
           )}
         />
-
-        {/* <div className="px-10">
-          <Input
-            label="이메일"
-            type="email"
-            placeholder="이메일을 입력해주세요."
-            className="mb-5"
-          />{' '}
-          <FormMessage />
-          <Input
-            label="비밀번호"
-            type="email"
-            placeholder="비밀번호를 입력해주세요."
-          />
-        </div> */}
-        <Button size="big" className="mt-auto">
-          로그인
-        </Button>
       </form>
+      <Button
+        size="big"
+        className="mt-auto"
+        type="submit"
+        disabled={!form.formState.isValid}
+        onClick={form.handleSubmit(onSubmit)}
+      >
+        로그인
+      </Button>
     </Form>
   );
 };
