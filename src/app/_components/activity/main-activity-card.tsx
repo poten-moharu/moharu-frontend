@@ -1,6 +1,9 @@
 import { Activity } from '@/types/type';
-import Image from 'next/image';
 import Link from 'next/link';
+import CalendarIcon from '/public/images/icons/calendar.svg';
+import HeartIcon from '/public/images/icons/heart.svg';
+import MapPinIcon from '/public/images/icons/map-pin.svg';
+import ShareIcon from '/public/images/icons/share.svg';
 
 interface MainActivityCardProps {
   activity: Activity;
@@ -30,20 +33,10 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
           {/* TODO: 디자인 시스템 아이콘 버튼 타입! */}
           <div className="flex">
             <button className="mr-16px">
-              <Image
-                src="/images/icons/heart.svg"
-                alt="위치"
-                width={16}
-                height={16}
-              />
+              <HeartIcon width={16} height={16} />
             </button>
             <button>
-              <Image
-                src="/images/icons/share.svg"
-                alt="위치"
-                width={16}
-                height={16}
-              />
+              <ShareIcon width={16} height={16} />
             </button>
           </div>
         </div>
@@ -51,13 +44,8 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
           {/* TODO: 임시 pr-10px 제거 */}
           <div className="flex pr-10px">
             {/* TODO: color slate 400 */}
-            <Image
-              src="/images/icons/map-pin.svg"
-              alt="위치"
-              width={16}
-              height={16}
-              className="mr-12px"
-            />
+
+            <MapPinIcon width={16} height={16} className="mr-12px" />
             {/* TODO: 변수 설정 */}
             {/* <p>{activity.location}</p> */}
             <p>챕터투</p>
@@ -68,12 +56,10 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
           </div>
         </div>
         <div className="flex">
-          <Image
-            className="mr-12px"
-            src="/images/icons/calendar.svg"
-            alt="위치"
+          <CalendarIcon
             width={16}
             height={16}
+            className="mr-12px stroke-black"
           />
           <p>
             {activity.activityDate} ~ {activity.activityEndDate}
