@@ -40,7 +40,7 @@ export default function LoginPage() {
             className="relative h-10 w-full rounded-full bg-white text-black hover:bg-slate-300"
           >
             <Image
-              src="/images/icons/google.png"
+              src="/images/icons/google.svg"
               alt="logo"
               width={20}
               height={20}
