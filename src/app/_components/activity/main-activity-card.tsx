@@ -12,7 +12,7 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
       <div className="p-24px">
         <div className="relative mb-20px">
           <div
-            className="h-[340px]"
+            className="h-[340px] rounded-[12px]"
             style={{
               backgroundImage: `url(${activity.imageUrl})`,
               backgroundSize: 'cover',
