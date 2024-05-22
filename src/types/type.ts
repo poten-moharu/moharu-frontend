@@ -2,7 +2,7 @@ export interface Activity {
   activityId: string;
   title: string;
   description: string;
-  categoryId: string;
+  id: string;
   imageUrl: string;
   type: string;
   address: string;
@@ -15,7 +15,7 @@ export interface Activity {
 }
 
 export interface Category {
-  categoryId: string;
+  id: number;
   name: string;
   description: string;
   icon: string;
