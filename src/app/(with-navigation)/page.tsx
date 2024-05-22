@@ -35,7 +35,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
+    <>
       {/* TODO: 날짜 포맷을 위한 moment 사용 여부 */}
       <div className="px-24px pb-12px pt-24px">
         <Popover>
@@ -75,6 +75,6 @@ export default function Home() {
       {activities.map(activity => (
         <MainActivityCard key={activity.activityId} activity={activity} />
       ))}
-    </main>
+    </>
   );
 }
