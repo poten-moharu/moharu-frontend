@@ -1,7 +1,12 @@
+'use client';
+
 import LocationInfo from '@/app/_components/info/location-info';
 import ScheduleInfo from '@/app/_components/info/schedule-info';
+import { useToast } from '@/components/ui/use-toast';
 import { Activity } from '@/types/type';
 import Link from 'next/link';
+import { useState } from 'react';
+import { SampleDialog } from '../dialog/sample-dialog';
 import CalendarIcon from '/public/images/icons/calendar.svg';
 import HeartIcon from '/public/images/icons/heart.svg';
 import MapPinIcon from '/public/images/icons/map-pin.svg';
@@ -12,10 +17,33 @@ interface MainActivityCardProps {
 }
 
 const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { toast } = useToast();
+  const moharuHomepageUrl = 'https://www.moharu.site';
+
+  const activityUrl = `${moharuHomepageUrl}/activities/${activity.activityId}`;
+  const onClickShareBtn = (event: React.MouseEvent) => {
+    setIsModalOpen(true);
+  };
+
+  // TODO: 처리 필요
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const onClickLikeBtn = () => {
+    toast({
+      description: 'Like button clicked',
+    });
+  };
+
   return (
-    <Link href={`/activities/${activity.activityId}`}>
+    <>
       <div className="p-24px">
-        <div className="relative mb-20px">
+        <Link
+          href={`/activities/${activity.activityId}`}
+          className="relative mb-20px"
+        >
           <div
             className="h-[340px] rounded-[12px]"
             style={{
@@ -27,18 +55,18 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
           <div className="absolute left-[14px] top-[14px] bg-orange-500 text-white">
             전시
           </div>
-        </div>
+        </Link>
         <div className="flex justify-between">
           {/* TODO: 디자인 시스템 typograph 적용  */}
           <p>{activity.title}</p>
           {/* TODO: 좋아요, 공유 버튼 */}
           {/* TODO: 디자인 시스템 아이콘 버튼 타입! */}
           <div className="flex">
-            <button className="mr-16px">
-              <HeartIcon width={16} height={16} />
+            <button className="mr-16px" onClick={onClickLikeBtn}>
+              <HeartIcon width={24} height={24} />
             </button>
-            <button>
-              <ShareIcon width={16} height={16} />
+            <button onClick={onClickShareBtn}>
+              <ShareIcon width={24} height={24} />
             </button>
           </div>
         </div>
@@ -71,7 +99,9 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
         <div className="h-8px"></div>
         <ScheduleInfo activity={activity} />
       </div>
-    </Link>
+
+      <SampleDialog open={isModalOpen} url={activityUrl} onClose={closeModal} />
+    </>
   );
 };
 

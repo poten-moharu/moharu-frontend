@@ -13,10 +13,24 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { toast } from '@/components/ui/use-toast';
 
-export function DialogCloseButton() {
+export function SampleDialog({
+  open,
+  url,
+  onClose,
+}: {
+  open: boolean;
+  url: string;
+  onClose: () => void;
+}) {
+  const onCopyLink = () => {
+    toast({
+      description: 'Copy complete!',
+    });
+  };
   return (
-    <Dialog>
+    <Dialog open={open}>
       <DialogTrigger asChild>
         <Button variant="outline">Share</Button>
       </DialogTrigger>
@@ -32,20 +46,16 @@ export function DialogCloseButton() {
             <Label htmlFor="link" className="sr-only">
               Link
             </Label>
-            <Input
-              id="link"
-              defaultValue="https://ui.shadcn.com/docs/installation"
-              readOnly
-            />
+            <Input id="link" defaultValue={url} readOnly />
           </div>
-          <Button type="submit" size="sm" className="px-3">
+          <Button type="submit" size="sm" className="px-3" onClick={onCopyLink}>
             <span className="sr-only">Copy</span>
             <Copy className="h-4 w-4" />
           </Button>
         </div>
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>
-            <Button type="button" variant="secondary">
+            <Button type="button" variant="secondary" onClick={onClose}>
               Close
             </Button>
           </DialogClose>

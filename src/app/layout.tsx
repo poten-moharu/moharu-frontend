@@ -1,3 +1,4 @@
+import { Toaster } from '@/components/ui/toaster';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import React from 'react';
@@ -22,6 +23,7 @@ export default function RootLayout({
         <div className="relative mx-auto flex h-full max-w-md flex-col shadow-md">
           {children}
         </div>
+        <Toaster />
       </body>
     </html>
   );
