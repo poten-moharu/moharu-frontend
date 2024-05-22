@@ -11,12 +11,12 @@ const ActivityTypeBadge: React.FC<ActivityTypeBadgeProps> = ({
 }) => {
   const bgColor =
     type === ACTIVITY_TYPE.EVENT
-      ? 'bg-slate-900' // slate/900
+      ? 'bg-slate-900'
       : type === ACTIVITY_TYPE.PLACE
         ? 'bg-white'
         : type === ACTIVITY_TYPE.MEETING
           ? 'bg-pink-100'
-          : ''; // pink 100
+          : '';
 
   const textColor =
     type === ACTIVITY_TYPE.EVENT
@@ -25,12 +25,10 @@ const ActivityTypeBadge: React.FC<ActivityTypeBadgeProps> = ({
         ? 'text-black'
         : type === ACTIVITY_TYPE.MEETING
           ? 'text-pink-600'
-          : ''; // pink 600
+          : '';
 
   const border =
-    type === ACTIVITY_TYPE.PLACE
-      ? 'border border-slate-300' // slate/300
-      : 'border-0';
+    type === ACTIVITY_TYPE.PLACE ? 'border border-slate-300' : 'border-0';
 
   const text =
     type === ACTIVITY_TYPE.EVENT

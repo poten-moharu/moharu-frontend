@@ -32,21 +32,6 @@ export interface User {
   region: string;
 }
 
-// export const ACTIVITY_TYPE = {
-//   EVENT: 'EVENT',
-//   MEETING: 'MEETING',
-//   PLACE: 'PLACE',
-// } as const;
-
-// export const ACTIVITY_TYPE = {
-//   EVENT: 'EVENT',
-//   MEETING: 'MEETING',
-//   PLACE: 'PLACE',
-// } as const;
-
-// export type ActivityType = typeof ACTIVITY_TYPE;
-// export type ActivityType = (typeof ACTIVITY_TYPE)[keyof typeof ACTIVITY_TYPE];
-
 export enum ACTIVITY_TYPE {
   EVENT = 'event',
   MEETING = 'meeting',
