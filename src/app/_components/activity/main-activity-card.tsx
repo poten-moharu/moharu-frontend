@@ -1,3 +1,5 @@
+import LocationInfo from '@/app/_components/info/location-info';
+import ScheduleInfo from '@/app/_components/info/schedule-info';
 import { Activity } from '@/types/type';
 import Link from 'next/link';
 import CalendarIcon from '/public/images/icons/calendar.svg';
@@ -65,6 +67,9 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
             {activity.activityDate} ~ {activity.activityEndDate}
           </p>
         </div>
+        <LocationInfo location={activity.location} address={activity.address} />
+        <div className="h-8px"></div>
+        <ScheduleInfo activity={activity} />
       </div>
     </Link>
   );
