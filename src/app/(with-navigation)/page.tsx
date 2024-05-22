@@ -48,6 +48,8 @@ export default function Home() {
                 height={24}
                 className="mr-[14px]"
               />
+              {/* <CalendarDaysIcon className="mr-[14px] h-6 w-6" /> */}
+
               <span>
                 {date ? (
                   format(date, 'MMMM do (E)', { locale: ko })
