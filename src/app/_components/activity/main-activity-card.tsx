@@ -1,16 +1,15 @@
 'use client';
 
-import LocationInfo from '@/app/_components/info/location-info';
-import ScheduleInfo from '@/app/_components/info/schedule-info';
+import ActiveLocationInfo from '@/app/_components/activity/activity-location-info';
+import ActiveScheduleInfo from '@/app/_components/activity/activity-schedule-info';
+import ActivityTypeBadge from '@/app/_components/activity/activity-type-badge';
+import { ShareDialog } from '@/app/_components/dialog/share-dialog';
 import { useToast } from '@/components/ui/use-toast';
+import { getActivityType } from '@/lib/utils';
 import { Activity } from '@/types/type';
 import Link from 'next/link';
 import { useState } from 'react';
-import { SampleDialog } from '../dialog/sample-dialog';
-import CalendarIcon from '/public/images/icons/calendar.svg';
 import HeartIcon from '/public/images/icons/heart.svg';
-import MapPinIcon from '/public/images/icons/map-pin.svg';
-import ShareIcon from '/public/images/icons/share.svg';
 
 interface MainActivityCardProps {
   activity: Activity;
@@ -22,7 +21,10 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
   const moharuHomepageUrl = 'https://www.moharu.site';
 
   const activityUrl = `${moharuHomepageUrl}/activities/${activity.activityId}`;
-  const onClickShareBtn = (event: React.MouseEvent) => {
+
+  const activityType = getActivityType(activity.type);
+
+  const onClickShareBtn = () => {
     setIsModalOpen(true);
   };
 
@@ -52,55 +54,42 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
             }}
           ></div>
           {/* TODO: design system tab_button 컴포넌트로 대체 */}
-          <div className="absolute left-[14px] top-[14px] bg-orange-500 text-white">
+          {/* <div className="absolute left-[14px] top-[14px] bg-orange-500 text-white">
             전시
-          </div>
-        </Link>
-        <div className="flex justify-between">
-          {/* TODO: 디자인 시스템 typograph 적용  */}
-          <p>{activity.title}</p>
-          {/* TODO: 좋아요, 공유 버튼 */}
-          {/* TODO: 디자인 시스템 아이콘 버튼 타입! */}
-          <div className="flex">
-            <button className="mr-16px" onClick={onClickLikeBtn}>
-              <HeartIcon width={24} height={24} />
-            </button>
-            <button onClick={onClickShareBtn}>
-              <ShareIcon width={24} height={24} />
-            </button>
-          </div>
-        </div>
-        <div className="flex">
-          {/* TODO: 임시 pr-10px 제거 */}
-          <div className="flex pr-10px">
-            {/* TODO: color slate 400 */}
-
-            <MapPinIcon width={16} height={16} className="mr-12px" />
-            {/* TODO: 변수 설정 */}
-            {/* <p>{activity.location}</p> */}
-            <p>챕터투</p>
-          </div>
-          {/* TODO: 임시 pl-10px 제거 */}
-          <div className="border-l border-l-[#CBD5E1] pl-10px">
-            {activity.location}
-          </div>
-        </div>
-        <div className="flex">
-          <CalendarIcon
-            width={16}
-            height={16}
-            className="mr-12px stroke-black"
+          </div> */}
+          <ActivityTypeBadge
+            className="absolute left-[14px] top-[14px]"
+            type={activityType}
           />
-          <p>
-            {activity.activityDate} ~ {activity.activityEndDate}
-          </p>
+        </Link>
+        <div className="mt-20px">
+          <div className="flex justify-between">
+            {/* TODO: 디자인 시스템 typograph 적용  */}
+            <p>{activity.title}</p>
+            <div className="flex">
+              <button className="mr-16px" onClick={onClickLikeBtn}>
+                <HeartIcon
+                  width={24}
+                  height={24}
+                  className="stroke-slate-900"
+                />
+              </button>
+              <ShareDialog
+                open={isModalOpen}
+                url={activityUrl}
+                onClose={closeModal}
+                onClickShareBtn={onClickShareBtn}
+              />
+            </div>
+          </div>
+          <ActiveLocationInfo
+            location={activity.location}
+            address={activity.address}
+          />
+          <div className="h-8px"></div>
+          <ActiveScheduleInfo activity={activity} />
         </div>
-        <LocationInfo location={activity.location} address={activity.address} />
-        <div className="h-8px"></div>
-        <ScheduleInfo activity={activity} />
       </div>
-
-      <SampleDialog open={isModalOpen} url={activityUrl} onClose={closeModal} />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { Copy } from 'lucide-react';
+import { Copy, ShareIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -15,14 +15,16 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/components/ui/use-toast';
 
-export function SampleDialog({
+export function ShareDialog({
   open,
   url,
   onClose,
+  onClickShareBtn,
 }: {
   open: boolean;
   url: string;
   onClose: () => void;
+  onClickShareBtn: () => void;
 }) {
   const onCopyLink = () => {
     toast({
@@ -32,7 +34,9 @@ export function SampleDialog({
   return (
     <Dialog open={open}>
       <DialogTrigger asChild>
-        <Button variant="outline">Share</Button>
+        <button onClick={onClickShareBtn}>
+          <ShareIcon width={24} height={24} className="stroke-slate-900" />
+        </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>

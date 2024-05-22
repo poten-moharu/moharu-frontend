@@ -4,7 +4,7 @@ export interface Activity {
   description: string;
   categoryId: string;
   imageUrl: string;
-  activityType: string;
+  type: string;
   address: string;
   location: string;
   tags: string[];
@@ -31,3 +31,26 @@ export interface User {
   mbti: string;
   region: string;
 }
+
+// export const ACTIVITY_TYPE = {
+//   EVENT: 'EVENT',
+//   MEETING: 'MEETING',
+//   PLACE: 'PLACE',
+// } as const;
+
+// export const ACTIVITY_TYPE = {
+//   EVENT: 'EVENT',
+//   MEETING: 'MEETING',
+//   PLACE: 'PLACE',
+// } as const;
+
+// export type ActivityType = typeof ACTIVITY_TYPE;
+// export type ActivityType = (typeof ACTIVITY_TYPE)[keyof typeof ACTIVITY_TYPE];
+
+export enum ACTIVITY_TYPE {
+  EVENT = 'event',
+  MEETING = 'meeting',
+  PLACE = 'place',
+}
+
+export type ActivityType = ACTIVITY_TYPE;
