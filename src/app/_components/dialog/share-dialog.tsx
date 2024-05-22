@@ -15,26 +15,16 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/components/ui/use-toast';
 
-export function ShareDialog({
-  open,
-  url,
-  onClose,
-  onClickShareBtn,
-}: {
-  open: boolean;
-  url: string;
-  onClose: () => void;
-  onClickShareBtn: () => void;
-}) {
+export function ShareDialog({ url }: { url: string }) {
   const onCopyLink = () => {
     toast({
       description: 'Copy complete!',
     });
   };
   return (
-    <Dialog open={open}>
+    <Dialog>
       <DialogTrigger asChild>
-        <button onClick={onClickShareBtn}>
+        <button>
           <ShareIcon width={24} height={24} className="stroke-slate-900" />
         </button>
       </DialogTrigger>
@@ -59,7 +49,7 @@ export function ShareDialog({
         </div>
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>
-            <Button type="button" variant="secondary" onClick={onClose}>
+            <Button type="button" variant="secondary">
               Close
             </Button>
           </DialogClose>

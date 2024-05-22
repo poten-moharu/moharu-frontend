@@ -8,7 +8,6 @@ import { useToast } from '@/components/ui/use-toast';
 import { getActivityType } from '@/lib/utils';
 import { Activity } from '@/types/type';
 import Link from 'next/link';
-import { useState } from 'react';
 import HeartIcon from '/public/images/icons/heart.svg';
 
 interface MainActivityCardProps {
@@ -16,21 +15,12 @@ interface MainActivityCardProps {
 }
 
 const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const { toast } = useToast();
   const moharuHomepageUrl = 'https://www.moharu.site';
 
   const activityUrl = `${moharuHomepageUrl}/activities/${activity.activityId}`;
 
   const activityType = getActivityType(activity.type);
-
-  const onClickShareBtn = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
 
   const onClickLikeBtn = () => {
     toast({
@@ -69,12 +59,7 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
                   className="stroke-slate-900"
                 />
               </button>
-              <ShareDialog
-                open={isModalOpen}
-                url={activityUrl}
-                onClose={closeModal}
-                onClickShareBtn={onClickShareBtn}
-              />
+              <ShareDialog url={activityUrl} />
             </div>
           </div>
           <ActiveLocationInfo
