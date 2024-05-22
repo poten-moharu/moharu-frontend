@@ -207,15 +207,8 @@ export default async function ActivityPage({
 
       <div className="px-24px py-20px">
         <div className="flex-col border-b  pb-24px">
-          {/* TODO: design system tab_button 컴포넌트로 대체 */}
-          <div className="mb-8px inline-flex bg-orange-500 px-12px text-white">
-            전시
-          </div>
-
           <ActivityTypeBadge type={activityType} />
-
           <h4 className="mb-8px text-20px font-bold">{activity.title}</h4>
-
           <ActiveLocationInfo
             location={activity.location}
             address={activity.address}

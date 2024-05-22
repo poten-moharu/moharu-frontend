@@ -28,7 +28,6 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
     setIsModalOpen(true);
   };
 
-  // TODO: 처리 필요
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -53,10 +52,6 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
               backgroundSize: 'cover',
             }}
           ></div>
-          {/* TODO: design system tab_button 컴포넌트로 대체 */}
-          {/* <div className="absolute left-[14px] top-[14px] bg-orange-500 text-white">
-            전시
-          </div> */}
           <ActivityTypeBadge
             className="absolute left-[14px] top-[14px]"
             type={activityType}

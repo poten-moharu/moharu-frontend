@@ -43,7 +43,7 @@ const ActivityTypeBadge: React.FC<ActivityTypeBadgeProps> = ({
 
   return (
     <div
-      className={`py-6px flex h-[32px] items-center rounded-[8px] px-12px ${bgColor} ${textColor} ${border} ${className}`}
+      className={`py-6px inline-flex h-[32px] items-center rounded-[8px] px-12px ${bgColor} ${textColor} ${border} ${className}`}
     >
       {text}
     </div>
