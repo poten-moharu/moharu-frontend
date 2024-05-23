@@ -1,17 +1,14 @@
 export interface Activity {
-  activityId: string;
+  id: number;
+  categoryId: number;
   title: string;
-  description: string;
-  id: string;
-  imageUrl: string;
+  coverImage: string;
   type: string;
   address: string;
+  status: string;
+  startDate: string;
+  endDate: string;
   location: string;
-  tags: string[];
-  activityDate: string;
-  activityStartDate: string;
-  activityEndDate: string;
-  registerDate: string;
 }
 
 export interface Category {
@@ -26,10 +23,14 @@ export interface User {
   email: string;
   name: string;
   profileImage: string;
-  age: number;
-  socialId: string;
   mbti: string;
+  ageRange: string;
+  gender: string;
   region: string;
+  socialType: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string;
 }
 
 export enum ACTIVITY_TYPE {
