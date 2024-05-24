@@ -103,7 +103,7 @@ export default async function ActivityPage({
             <div className="content"></div>
           </div>
         </div>
-      </div>
+      </div>{' '}
       <ReservationButton id={activity.id} />
     </>
   );
