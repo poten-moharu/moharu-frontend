@@ -16,7 +16,7 @@ const ReservationButton: React.FC<ReservationButtonProps> = ({ id }) => {
       size={'big'}
       className="sticky bottom-0 left-0 mt-auto"
     >
-      예약하기
+      위시리스트에 추가하기
     </Button>
   );
 };
