@@ -23,5 +23,6 @@ export async function fetchWithToken(url: string, options: FetchOptions = {}) {
     throw new Error(error.message);
   }
 
+  // TODO: response로 리턴하도록 변경?
   return response.json();
 }
