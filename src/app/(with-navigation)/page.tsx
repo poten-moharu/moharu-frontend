@@ -33,6 +33,12 @@ export default function Home() {
   }, []);
 
 
+  useEffect(() => {
+    if (searchParams.get('from') === 'signup') {
+      toast({ description: '회원가입이 완료되었습니다!' });
+    }
+  }, []);
+
   // useEffect(() => {
   //   if (!session && !searchParams.get('from')) {
   //     redirect('/auth/login');
