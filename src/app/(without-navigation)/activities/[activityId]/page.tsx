@@ -39,7 +39,7 @@ export default function ActivityPage() {
   return (
     <>
       <Header
-        backButton
+        listButton
         shareButton
         likeButton
         transparent={true}
