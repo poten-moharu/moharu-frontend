@@ -9,6 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { toast } from '@/components/ui/use-toast';
 import { fetchWithToken } from '@/lib/fetch';
 import { Activity, Category } from '@/types/type';
 import { format } from 'date-fns';
@@ -16,18 +17,25 @@ import { ko } from 'date-fns/locale';
 import moment from 'moment';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import { redirect, useSearchParams } from 'next/navigation';
+import { redirect, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
   const { data: session } = useSession();
   const searchParams = useSearchParams();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (searchParams.get('from') === 'signup') {
+      toast({ description: '회원가입이 완료되었습니다!' });
+      router.replace('/');
+    }
+  }, []);
 
   useEffect(() => {
     if (!session && !searchParams.get('from')) {
       redirect('/auth/login');
     }
-
     if (session && !session.user.mbti) {
       redirect('/auth/signup/extra-required');
     }

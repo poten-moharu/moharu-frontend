@@ -14,6 +14,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRecoilState } from 'recoil';
 import { z } from 'zod';
@@ -93,16 +94,17 @@ export default function SignUpExtraOptionalPage() {
     mode: 'onChange',
     defaultValues: {
       name: session?.user?.name || signUpInfo.name || '',
-      profileImage:
-        session?.user?.profileImage ||
-        '/images/logo/Logo_Image_Main_Moharu.png',
+      profileImage: '/images/logo/Logo_Image_Main_Moharu.png',
       gender: signUpInfo.gender,
       ageRange: signUpInfo.ageRange,
       region: signUpInfo.region,
     },
   });
-
   const profileImageUrl = form.watch('profileImage');
+
+  useEffect(() => {
+    if (session) form.setValue('profileImage', session.user.profileImage);
+  }, [session]);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const response = await fetch('https://api.moharu.site/auth/register', {
@@ -126,6 +128,7 @@ export default function SignUpExtraOptionalPage() {
           alt="프로필 사진"
           width={100}
           height={100}
+          className="rounded-lg"
         />
 
         <FormField
@@ -137,7 +140,6 @@ export default function SignUpExtraOptionalPage() {
               <FormControl>
                 <Input
                   type="text"
-                  defaultValue={'이름'}
                   {...field}
                   onChange={e => {
                     form.setValue('name', e.target.value, {
