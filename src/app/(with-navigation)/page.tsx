@@ -17,7 +17,7 @@ import { ko } from 'date-fns/locale';
 import moment from 'moment';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import { redirect, useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -32,14 +32,16 @@ export default function Home() {
     }
   }, []);
 
-  useEffect(() => {
-    if (!session && !searchParams.get('from')) {
-      redirect('/auth/login');
-    }
-    if (session && !session.user.mbti) {
-      redirect('/auth/signup/extra-required');
-    }
-  }, [session]);
+
+  // useEffect(() => {
+  //   if (!session && !searchParams.get('from')) {
+  //     redirect('/auth/login');
+  //   }
+
+  //   if (session && !session.user.mbti) {
+  //     redirect('/auth/signup/extra-required');
+  //   }
+  // }, [session]);
 
   const [categoryList, setCategoryList] = useState<Category[]>([]);
   const [activities, setActivities] = useState<Activity[]>([]);
