@@ -17,7 +17,7 @@ import { ko } from 'date-fns/locale';
 import moment from 'moment';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+import { redirect, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -28,26 +28,18 @@ export default function Home() {
   useEffect(() => {
     if (searchParams.get('from') === 'signup') {
       toast({ description: '회원가입이 완료되었습니다!' });
-      router.replace('/');
     }
   }, []);
-
 
   useEffect(() => {
-    if (searchParams.get('from') === 'signup') {
-      toast({ description: '회원가입이 완료되었습니다!' });
+    if (!session && !searchParams.get('from')) {
+      redirect('/auth/login');
     }
-  }, []);
 
-  // useEffect(() => {
-  //   if (!session && !searchParams.get('from')) {
-  //     redirect('/auth/login');
-  //   }
-
-  //   if (session && !session.user.mbti) {
-  //     redirect('/auth/signup/extra-required');
-  //   }
-  // }, [session]);
+    if (session && !session.user.mbti) {
+      redirect('/auth/signup/extra-required');
+    }
+  }, [session]);
 
   const [open, setOpen] = useState(false);
   const [categoryList, setCategoryList] = useState<Category[]>([]);
