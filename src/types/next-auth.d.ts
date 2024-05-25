@@ -19,4 +19,13 @@ declare module 'next-auth' {
     user: DefaultSession['user'] & User;
     accessToken?: string;
   }
+  interface JWT {
+    id: number;
+    email: string;
+    name: string;
+    profileImage: string;
+    telephone: null;
+    mbti: string;
+    ageRange: string;
+  }
 }
