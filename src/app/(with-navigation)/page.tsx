@@ -73,6 +73,7 @@ export default function Home() {
     const url = `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/activities?categoryId=${selectedCategoryId}&selectedDate=${formattedDate}`;
 
     fetchWithToken(url)
+      .then(res => res.json())
       .then(data => {
         const activitiesWithWishStatus: Activity[] = data.activities.map(
           (activity: Activity) => {
