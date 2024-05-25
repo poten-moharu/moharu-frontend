@@ -124,11 +124,11 @@ export default async function Profile() {
           list={activityWishes}
           totalCount={wishTotalCount}
         />
-        <div
+        <Link
+          href={
+            'window.location.href = `mailto:moharu.site@gmail.com?subject=Activity Link&body=모하루에게 전시, 행사, 모임, 장소 등 다양한 오프라인 활동을 제보해주세요!`'
+          }
           className="my-20px flex cursor-pointer justify-between rounded-[12px] border-[1px] border-[#E2E8F0] p-24px"
-          onClick={() => {
-            window.location.href = `mailto:moharu.site@gmail.com?subject=Activity Link&body=모하루에게 전시, 행사, 모임, 장소 등 다양한 오프라인 활동을 제보해주세요!`;
-          }}
         >
           <div>
             <div className="mb-10px font-medium">
@@ -151,7 +151,7 @@ export default async function Profile() {
             width={105}
             height={110}
           />
-        </div>
+        </Link>
 
         <div className="text-14px">
           <p className="mb-20px">
