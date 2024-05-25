@@ -45,7 +45,7 @@ const MainActivityCard: React.FC<MainActivityCardProps> = ({ activity }) => {
             <div className="flex">
               <button className="mr-16px" onClick={onClickLikeBtn}>
                 {/* TODO: HearFillIcon fill pink */}
-                {activity.wished ? (
+                {activity.isWish ? (
                   <HearFillIcon
                     width={24}
                     height={24}
