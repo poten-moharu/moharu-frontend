@@ -56,6 +56,7 @@ export default function Home() {
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/activities-category`)
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         let firstCateogry;
         if (session) {
           firstCateogry = {
@@ -103,7 +104,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchCategories();
-  }, []);
+  }, [session]);
 
   useEffect(() => {
     fetchActivities();
