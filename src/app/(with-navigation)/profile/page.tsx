@@ -26,7 +26,7 @@ export default async function Profile() {
 
   const categoryCount = data.categoryCount;
   // TODO: 값 확인
-  const graphData = Object.values(categoryCount);
+  const graphData = categoryCount ? Object.values(categoryCount) : [];
 
   return (
     <>
