@@ -64,7 +64,7 @@ export default async function Profile() {
       <div className="bg-white px-24px">
         <div className="mb-20px flex items-center">
           <BackgroundImageWithPlaceholder
-            src={userProfile.profileImae}
+            src={userProfile.profileImage}
             className="mr-24px h-[80px] w-[80px] rounded-full"
           />
           <div>
