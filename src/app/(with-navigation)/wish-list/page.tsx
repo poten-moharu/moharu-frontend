@@ -19,15 +19,17 @@ export default async function WishListPage({
   return (
     <>
       <TitleHeader title="위시리스트" />
-      <div className="px-24px">
+      <div className="mb-6 flex h-fit flex-auto flex-col px-24px">
         <WishListTabs category={category} />
-        <div className="mt-12px grid w-full grid-cols-2 gap-20px">
+        <div className="mt-12px grid h-auto w-full flex-auto grid-cols-2 gap-20px">
           {wishList.length > 0 ? (
             wishList.map(wishList => (
               <WishListCard key={wishList.id} wishList={wishList} />
             ))
           ) : (
-            <div className="flex items-center">위시리스트가 없습니다.</div>
+            <div className="col-span-2 flex h-full w-full items-center justify-center text-slate-500">
+              위시리스트가 존재하지 않습니다.
+            </div>
           )}
         </div>
       </div>
